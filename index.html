@@ -10,26 +10,32 @@
 <div id="app">
     <header id="top-bar">
         <h1>Party Games</h1>
+        <button id="rules-btn" onclick="openRules()">Правила</button>
     </header>
 
     <main id="content">
         <section id="menu">
             <h2>Выбери игру</h2>
             <div class="game-list">
-                <button class="game-card" onclick="selectGame('mafia')">
-                    <h3>Мафия</h3>
-                    <p>Социальная дедукция</p>
-                </button>
-                <button class="game-card" onclick="selectGame('bunker')">
-                    <h3>Бункер</h3>
-                    <p>Выживание и обсуждение</p>
-                </button>
+                <div class="game-card" onclick="selectGame('mafia')">
+                    <div class="game-icon mafia"></div>
+                    <div class="game-info">
+                        <h3>Мафия</h3>
+                        <p>Социальная дедукция, роли, ночи и голосования.</p>
+                    </div>
+                </div>
+                <div class="game-card" onclick="selectGame('bunker')">
+                    <div class="game-icon bunker"></div>
+                    <div class="game-info">
+                        <h3>Бункер</h3>
+                        <p>Выживание, характеристики, обсуждение и голос.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="mode-block">
                 <h2>Режим</h2>
                 <button onclick="startLocal()">Локально (одно устройство)</button>
-
                 <div class="online">
                     <button onclick="createLobby()">Создать онлайн‑лобби</button>
                     <input id="joinCode" placeholder="Код комнаты">
@@ -42,23 +48,30 @@
             <div id="game-header">
                 <span id="game-title"></span>
                 <span id="room-code"></span>
+                <button onclick="backToMenu()">← Меню</button>
             </div>
 
-            <div id="game-area">
-                <!-- сюда игры рисуют свой UI -->
-            </div>
+            <div id="game-area"></div>
 
             <div id="game-controls">
-                <!-- общие кнопки / лог -->
                 <div id="log"></div>
             </div>
         </section>
     </main>
+
+    <!-- Модальное окно правил -->
+    <div id="rules-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeRules()">×</button>
+            <h2 id="rules-title">Правила</h2>
+            <div id="rules-text"></div>
+        </div>
+    </div>
 </div>
 
 <script src="net.js"></script>
 <script src="mafia.js"></script>
-<script src="bunker.js"></script>
+script src="bunker.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
