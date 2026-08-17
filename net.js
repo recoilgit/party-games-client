@@ -1,7 +1,7 @@
 let ws = null;
 
 function createLobbyNet(game) {
-    ws = new WebSocket("wss://your-server-url.onrender.com");
+    ws = new WebSocket("wss://party-games-server-0kgn.onrender.com");
     ws.onopen = () => {
         ws.send(JSON.stringify({type: "create", game}));
     };
@@ -9,7 +9,7 @@ function createLobbyNet(game) {
 }
 
 function joinLobbyNet(game, code) {
-    ws = new WebSocket("wss://your-server-url.onrender.com");
+    ws = new WebSocket("wss://party-games-server-0kgn.onrender.com");
     ws.onopen = () => {
         ws.send(JSON.stringify({type: "join", game, code}));
     };
